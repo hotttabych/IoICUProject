@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EDU GOST</string>
+    <string name="app_name">edugost</string>
     <string name="qua_name">Генерация вопросов</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -30,4 +30,7 @@
     <string name="qua_theme_enter_text">Тема работы</string>
     <string name="qua_count_enter_text">Количество вопросов (10 максимум)</string>
     <string name="generate_button_text">Генерировать</string>
+    <string name="file_is_ready">Твой файл готов.\nХорошей защиты!</string>
+    <string name="download">Скачать</string>
+    <string name="file_loading">Загружаем твой файл…</string>
 </resources>
