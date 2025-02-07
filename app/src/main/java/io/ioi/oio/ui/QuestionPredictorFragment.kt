@@ -10,14 +10,41 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import io.ioi.oio.R
 import io.ioi.oio.databinding.FragmentQuestionPredictorBinding
+import java.io.File
 
 class QuestionPredictorFragment : BaseFragment() {
     private var _binding: FragmentQuestionPredictorBinding? = null
     private val binding get() = _binding!!
 
-    private val getFileLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+    private lateinit var fileUri_pdf: Uri
+    private lateinit var fileUri_word: Uri
+    private lateinit var fileUri_pptx: Uri
+
+    private val getFileLauncher1 = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
         uri?.let {
-            handleFileUpload(it)
+            handleFileUpload1(it)
+            if(fileUri_pdf != null){
+                binding.addFileButtonPdf.visibility = View.GONE
+                binding.addFileButtonPdfReady.visibility = View.VISIBLE
+            }
+        }
+    }
+    private val getFileLauncher2 = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            handleFileUpload2(it)
+            if(fileUri_word != null){
+                binding.addFileButtonWord.visibility = View.GONE
+                binding.addFileButtonWordReady.visibility = View.VISIBLE
+            }
+        }
+    }
+    private val getFileLauncher3 = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        uri?.let {
+            handleFileUpload3(it)
+            if(fileUri_pptx != null){
+                binding.addFileButtonPptx.visibility = View.GONE
+                binding.addFileButtonPptxReady.visibility = View.VISIBLE
+            }
         }
     }
 
@@ -28,14 +55,27 @@ class QuestionPredictorFragment : BaseFragment() {
         _binding = FragmentQuestionPredictorBinding.inflate(inflater, container, false)
 
         binding.addFileButtonPdf.setOnClickListener {
-            getFileLauncher.launch("pdf/*")}
+            getFileLauncher1.launch("pdf/*")
+        }
+        binding.addFileButtonWord.setOnClickListener {
+            getFileLauncher2.launch("word/*")}
+        binding.addFileButtonPptx.setOnClickListener {
+            getFileLauncher3.launch("pptx/*")}
 
         return binding.root
     }
 
-    private fun handleFileUpload(uri: Uri) {
-        val filePath = uri.path
-        Toast.makeText(requireContext(), "Файл загружен: $filePath", Toast.LENGTH_SHORT).show()
+    private fun handleFileUpload1(uri: Uri) {
+        fileUri_pdf = uri
+        Toast.makeText(requireContext(), "Файл загружен: ${uri.path}", Toast.LENGTH_SHORT).show()
+    }
+    private fun handleFileUpload2(uri: Uri) {
+        fileUri_word = uri
+        Toast.makeText(requireContext(), "Файл загружен: ${uri.path}", Toast.LENGTH_SHORT).show()
+    }
+    private fun handleFileUpload3(uri: Uri) {
+        fileUri_pptx = uri
+        Toast.makeText(requireContext(), "Файл загружен: ${uri.path}", Toast.LENGTH_SHORT).show()
     }
 }
 
