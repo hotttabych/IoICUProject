@@ -54,16 +54,29 @@
             android:layout_marginHorizontal="24dp">
 
             <TextView
-                android:id="@+id/environmental_contribution_title"
+                android:id="@+id/subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:layout_marginHorizontal="4dp"
                 android:fontFamily="sans-serif"
-                android:paddingVertical="24dp"
+                android:paddingTop="24dp"
                 android:text="@string/dashboard_subtitle"
                 android:textAlignment="viewStart"
                 android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/subtitle_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginHorizontal="4dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="24dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/dashboard_subtitle_2"
+                android:textAlignment="viewStart"
+                android:textSize="16sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/format_file_button"
