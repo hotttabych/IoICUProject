@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">IoI Solution</string>
+    <string name="app_name">EDU GOST</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dashboard">Дашборд</string>
+    <string name="dashboard_subtitle">Что будем делать сегодня?</string>
+    <string name="dashboard_questions_button">Предсказать вопросы</string>
+    <string name="dashboard_format_file_button">Форматировать файл</string>
+    <string name="dashboard_find_references_button">Найти источники</string>
 </resources>
