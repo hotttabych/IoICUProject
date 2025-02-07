@@ -11,7 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import io.ioi.oio.R
 import io.ioi.oio.databinding.FragmentFileCheckerBinding
 
-class FileCheckerFragment : Fragment() {
+class FileCheckerFragment : BaseFragment() {
     private var _binding: FragmentFileCheckerBinding? = null
     private val binding get() = _binding!!
 
