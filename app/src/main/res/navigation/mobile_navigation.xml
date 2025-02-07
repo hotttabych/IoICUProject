@@ -11,4 +11,10 @@
         android:label="@string/dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
+    <fragment
+        android:id="@+id/question_predictor_fragment"
+        android:name="io.ioi.oio.ui.QuestionPredictorFragment"
+        android:label="@string/dashboard_questions_button"
+        tools:layout="@layout/fragment_question_predictor" />
+
 </navigation>
