@@ -35,7 +35,7 @@ tools:context=".ui.QuestionPredictorFragment">
             android:paddingStart="6dp"
             android:paddingEnd="8dp"
             app:layout_collapseMode="pin"
-            app:navigationIcon="null" />
+            app:navigationIcon="@null" />
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 </com.google.android.material.appbar.AppBarLayout>
