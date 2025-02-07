@@ -53,18 +53,6 @@ tools:context=".ui.QuestionPredictorFragment">
         android:orientation="vertical"
         android:layout_marginHorizontal="24dp">
 
-        <TextView
-            android:id="@+id/type_file_pdf_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginHorizontal="4dp"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:fontFamily="sans-serif"
-            android:text="@string/qua_format_file_text"
-            android:textAlignment="viewStart"
-            android:textSize="16sp" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -133,36 +121,53 @@ tools:context=".ui.QuestionPredictorFragment">
             android:visibility="gone"
             app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
 
-
-        <EditText
-            android:id="@+id/input_theme_text"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/topic_text_field_qua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginHorizontal="4dp"
-            android:paddingTop="24dp"
-            android:paddingBottom="12dp"
-            android:fontFamily="sans-serif"
-            android:textAlignment="viewStart"
-            android:textSize="16sp"
-            android:inputType="text"
-            android:autofillHints="name"
-            android:hint="@string/qua_theme_enter_text"/>
+            android:layout_marginTop="10dp"
+            android:hint="@string/qua_theme_enter_text"
+            android:labelFor="@id/edit_topic_qua"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp">
 
-        <EditText
-            android:id="@+id/input_count_text"
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_topic_qua"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/count_text_field_qua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginHorizontal="4dp"
-            android:paddingTop="24dp"
-            android:paddingBottom="12dp"
-            android:fontFamily="sans-serif"
-            android:textAlignment="viewStart"
-            android:textSize="16sp"
-            android:inputType="number"
-            android:autofillHints="name"
-            android:hint="@string/qua_count_enter_text"/>
+            android:layout_marginTop="10dp"
+            android:hint="@string/qua_count_enter_text"
+            android:labelFor="@id/edit_count_qua"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp">
+
+            <!--this is the actual edit text which takes the input-->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_count_qua"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/format_file_button"
