@@ -17,4 +17,10 @@
         android:label="@string/dashboard_questions_button"
         tools:layout="@layout/fragment_question_predictor" />
 
+    <fragment
+        android:id="@+id/reference_seeker_fragment"
+        android:name="io.ioi.oio.ui.ReferenceSeekerFragment"
+        android:label="@string/dashboard_find_references_button"
+        tools:layout="@layout/fragment_reference_seeker" />
+
 </navigation>
