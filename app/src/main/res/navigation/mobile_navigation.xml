@@ -26,7 +26,13 @@
     <fragment
         android:id="@+id/file_check_fragment"
         android:name="io.ioi.oio.ui.FileCheckerFragment"
-        android:label="@string/dashboard_find_references_button"
+        android:label="@string/dashboard_format_file_button"
         tools:layout="@layout/fragment_file_checker" />
+
+    <fragment
+        android:id="@+id/file_download_fragment"
+        android:name="io.ioi.oio.ui.FileDownloadFragment"
+        android:label="@string/download"
+        tools:layout="@layout/fragment_file_download" />
 
 </navigation>

@@ -35,4 +35,5 @@
     <string name="download">Скачать</string>
     <string name="file_loading">Загружаем твой файл…</string>
     <string name="file_description_enter_text">Описание форматирования</string>
+    <string name="go_home">На главный экран</string>
 </resources>

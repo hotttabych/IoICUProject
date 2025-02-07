@@ -24,7 +24,7 @@
             app:expandedTitleTextAppearance="?textAppearanceHeadlineLarge"
             app:expandedTitleTextColor="?attr/colorOnSurface"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:title="@string/qua_name"
+            app:title="@string/download"
             app:titleCollapseMode="scale">
 
             <com.google.android.material.appbar.MaterialToolbar
@@ -84,9 +84,19 @@
                     android:id="@+id/questions_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="8dp"
+                    android:layout_marginTop="8dp"
                     android:paddingVertical="24dp"
                     android:text="@string/download"
+                    android:textSize="18sp"
+                    app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/go_home_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:paddingVertical="24dp"
+                    android:text="@string/go_home"
                     android:textSize="18sp"
                     app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
 
@@ -97,9 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:gravity="center"
-                android:visibility="gone"
-                tools:visibility="visible">
+                android:gravity="center">
 
                 <ProgressBar
                     android:id="@+id/progress_loader"

@@ -23,7 +23,6 @@ class DashboardFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-            // TODO: File formatter onClickListener
             questionsButton.setOnClickListener {
                 findNavController().navigate(R.id.question_predictor_fragment)
             }

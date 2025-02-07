@@ -58,7 +58,7 @@ class QuestionPredictorFragment : BaseFragment() {
             getFileLauncher1.launch("pdf/*")
         }
         binding.addFileButtonWord.setOnClickListener {
-            getFileLauncher2.launch("word/*")}
+            getFileLauncher2.launch("docx/*")}
         binding.addFileButtonPptx.setOnClickListener {
             getFileLauncher3.launch("pptx/*")}
 
