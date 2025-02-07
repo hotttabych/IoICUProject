@@ -30,6 +30,9 @@ class DashboardFragment : BaseFragment() {
             findReferencesButton.setOnClickListener {
                 findNavController().navigate(R.id.reference_seeker_fragment)
             }
+            formatFileButton.setOnClickListener {
+                findNavController().navigate(R.id.file_check_fragment)
+            }
         }
     }
 
