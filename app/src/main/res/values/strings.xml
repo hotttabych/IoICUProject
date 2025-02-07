@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">EDU GOST</string>
-    <string name="qua_name">Генерация вопросов</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dashboard">Дашборд</string>
@@ -9,12 +8,17 @@
     <string name="dashboard_questions_button">Предсказать вопросы</string>
     <string name="dashboard_format_file_button">Форматировать файл</string>
     <string name="dashboard_find_references_button">Найти источники</string>
-    <string name="qua_format_add_file_button_pdf">Загрузить файл PDF</string>
-    <string name="qua_format_add_file_button_word">Загрузить файл WORD</string>
-    <string name="qua_format_add_file_button_pptx">Загрузить файл PPTX</string>
-    <string name="qua_format_add_filу_done">Файл добавлен</string>
-    <string name="qua_format_file_text">Загрузите файл/файлы вашей работы:</string>
-    <string name="qua_theme_enter_text">Тема работы</string>
-    <string name="qua_count_enter_text">Количество вопросов (10 максимум)</string>
-    <string name="generate_button_text">Генерировать</string>
+    <string name="topic">Тема</string>
+    <string name="description">Описание</string>
+    <string name="start_date">Дата начала</string>
+    <string name="end_date">Дата конца</string>
+    <string name="reference_seeker_places_subtitle">Где будем искать?</string>
+    <string name="books">Книги</string>
+    <string name="articles">Статьи</string>
+    <string name="websites">Сайты</string>
+    <string name="reference_seeker_author_subtitle">И что насчёт автора?</string>
+    <string name="author_is_present">Есть</string>
+    <string name="author_is_not_present">Нет</string>
+    <string name="additional_criteria_hint">Дополнительные критерии (необязательно)</string>
+    <string name="reference_seeker_launch_button_text">Запустить поиск</string>
 </resources>
