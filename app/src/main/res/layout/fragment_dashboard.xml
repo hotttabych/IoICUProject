@@ -62,15 +62,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="12dp">
+                    android:layout_margin="12dp"
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.3"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/ghost_hearts_3_" />
+                        android:contentDescription="@string/gosty_with_hearts"
+                        android:src="@drawable/ghost_hearts_3" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -109,14 +110,6 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/format_file_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="24dp"
-                android:text="@string/dashboard_format_file_button"
-                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
-
-            <com.google.android.material.button.MaterialButton
                 android:id="@+id/questions_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,6 +123,14 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="24dp"
                 android:text="@string/dashboard_find_references_button"
+                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/format_file_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="24dp"
+                android:text="@string/dashboard_format_file_button"
                 app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
 
         </LinearLayout>

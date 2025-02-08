@@ -2,9 +2,12 @@ package io.ioi.oio.ui
 
 import android.net.Uri
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
@@ -69,7 +72,7 @@ class QuestionPredictorFragment : BaseFragment() {
         binding.addFileButtonPptx.setOnClickListener {
             getFileLauncher3.launch("application/vnd.openxmlformats-officedocument.presentationml.presentation")}
 
-        binding.formatFileButton.setOnClickListener{
+        binding.formatFileButton.setOnClickListener {
             if (fileUri_pdf != null || fileUri_pptx != null || fileUri_word != null) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     binding.apply {
@@ -77,13 +80,14 @@ class QuestionPredictorFragment : BaseFragment() {
                         predictionProgress.visibility = View.VISIBLE
                         predictionProgress.isIndeterminate = true
                     }
-                    val answer = fileUri_pdf?.path?.let { pdfFilePath ->
-                        apiViewModel.getQuestions(File(pdfFilePath), 10)
-                    } ?: fileUri_pptx?.path?.let { pptxFilePath ->
-                        apiViewModel.getQuestions(File(pptxFilePath), 10)
-                    } ?: fileUri_word?.path?.let { wordFilePath ->
-                        apiViewModel.getQuestions(File(wordFilePath), 10)
-                    }
+                    binding.editCountQua.setRangeFilter(0, 10)
+                    val answer = fileUri_pdf?.let { pdfFile ->
+                        apiViewModel.getQuestions(pdfFile.uriToFile(), binding.editCountQua.getIntValue())
+                    } ?: fileUri_pptx?.let { pptxFile ->
+                        apiViewModel.getQuestions(pptxFile.uriToFile(), binding.editCountQua.getIntValue())
+                    } ?: fileUri_word?.let { wordFile ->
+                        apiViewModel.getQuestions(wordFile.uriToFile(), binding.editCountQua.getIntValue())
+                    } ?: ""
                     val bundle = Bundle().apply {
                         putString("result", answer)
                     }
@@ -102,15 +106,44 @@ class QuestionPredictorFragment : BaseFragment() {
         fileUri_pdf = uri
         Toast.makeText(requireContext(), "Файл загружен: ${uri.path}", Toast.LENGTH_SHORT).show()
     }
+
     private fun handleWordFileUpload2(uri: Uri) {
         fileUri_word = uri
         Toast.makeText(requireContext(), "Файл загружен: ${uri.path}", Toast.LENGTH_SHORT).show()
     }
+
     private fun handlePptxFileUpload(uri: Uri) {
         fileUri_pptx = uri
         Toast.makeText(requireContext(), "Файл загружен: ${uri.path}", Toast.LENGTH_SHORT).show()
     }
+
+    // Function to convert URI to actual file path
+    private fun Uri.uriToFile(): File {
+        val inputStream = requireContext().contentResolver.openInputStream(this) ?: throw IllegalStateException("Cannot open input stream")
+        val file = File(requireContext().cacheDir, "temp_file.pdf") // Create a temp file
+        file.outputStream().use { output ->
+            inputStream.copyTo(output)
+        }
+        return file
+    }
+
+    private fun EditText.setRangeFilter(minValue: Int, maxValue: Int) {
+        val filter = object : InputFilter {
+            override fun filter(
+                source: CharSequence?, start: Int, end: Int,
+                dest: Spanned?, dstart: Int, dend: Int
+            ): CharSequence? {
+                val newText = dest.toString() + source.toString()
+                val value = newText.toIntOrNull() ?: return ""
+                return if (value in minValue..maxValue) null else ""
+            }
+        }
+        filters = arrayOf(filter)
+    }
+
+    fun EditText.getIntValue(): Int {
+        return text.toString().toIntOrNull() ?: 10
+    }
+
 }
-
-
 

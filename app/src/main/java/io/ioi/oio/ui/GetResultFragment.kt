@@ -33,13 +33,6 @@ class GetResultFragment : Fragment() {
             binding.copyableTextView.text = getString("result")
         }
 
-        binding.apply {
-            readyLayout.postDelayed({
-                readyLayout.visibility = View.GONE
-                readyLayout.visibility = View.VISIBLE
-            }, 2000)
-        }
-
         binding.goHomeButton.setOnClickListener {
             findNavController().navigate(R.id.dashboard_fragment)
         }

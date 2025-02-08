@@ -120,30 +120,6 @@ tools:context=".ui.QuestionPredictorFragment">
             app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/topic_text_field_qua"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/qua_theme_enter_text"
-            android:labelFor="@id/edit_topic_qua"
-            app:boxCornerRadiusBottomEnd="12dp"
-            app:boxCornerRadiusBottomStart="12dp"
-            app:boxCornerRadiusTopEnd="12dp"
-            app:boxCornerRadiusTopStart="12dp">
-
-            <!--this is the actual edit text which takes the input-->
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_topic_qua"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ems="10"
-                android:inputType="text"
-                android:minHeight="48dp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/count_text_field_qua"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -197,7 +173,6 @@ tools:context=".ui.QuestionPredictorFragment">
                 tools:progress="75" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </LinearLayout>
 

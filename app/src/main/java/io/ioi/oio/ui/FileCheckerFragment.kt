@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.navigation.fragment.findNavController
-import io.ioi.oio.R
 import io.ioi.oio.databinding.FragmentFileCheckerBinding
 
 class FileCheckerFragment : BaseFragment() {
@@ -39,7 +37,6 @@ class FileCheckerFragment : BaseFragment() {
         binding.formatFileButton.setOnClickListener {
             if (fileUri_word?.path?.isNotEmpty() == true) {
                 Toast.makeText(requireContext(), "Данный функционал находится в разработке", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.file_download_fragment)
             }
         }
 

@@ -8,17 +8,17 @@
     <string name="dashboard_subtitle">Что будем делать сегодня?</string>
     <string name="dashboard_subtitle_2">Я могу отформатировать твой текстовый документ по ГОСТу, предсказать вопросы, которые могут задать на выступлении, и найти для него релевантные источники</string>
     <string name="dashboard_questions_button">Предсказать вопросы</string>
-    <string name="dashboard_format_file_button">Форматировать файл</string>
+    <string name="dashboard_format_file_button">Форматировать файл [в разработке]</string>
     <string name="dashboard_find_references_button">Найти источники</string>
     <string name="topic">Тема</string>
-    <string name="description">Описание</string>
+    <string name="description">Описание [в разработке]</string>
     <string name="start_date">Дата начала</string>
     <string name="end_date">Дата конца</string>
     <string name="reference_seeker_places_subtitle">Где будем искать?</string>
     <string name="books">Книги</string>
     <string name="articles">Статьи</string>
     <string name="websites">Сайты</string>
-    <string name="reference_seeker_author_subtitle">И что насчёт автора?</string>
+    <string name="reference_seeker_author_subtitle">И что насчёт автора? [в разработке]</string>
     <string name="author_is_present">Есть</string>
     <string name="author_is_not_present">Нет</string>
     <string name="additional_criteria_hint">Дополнительные критерии (необязательно)</string>
@@ -40,4 +40,6 @@
     <string name="result_loading">Загружаем твой запрос…</string>
     <string name="file_description_enter_text">Описание форматирования</string>
     <string name="go_home">На главный экран</string>
+    <string name="text_to_copy">Копируемый текст</string>
+    <string name="gosty_with_hearts">Гости, вокруг которого летают сердечки</string>
 </resources>

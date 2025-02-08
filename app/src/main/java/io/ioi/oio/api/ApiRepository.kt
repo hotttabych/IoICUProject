@@ -11,6 +11,9 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.Headers
 import io.ktor.http.HttpHeaders
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.jsonObject
+import kotlinx.serialization.json.jsonPrimitive
 import java.io.File
 
 data class YandexGPTRequest(
@@ -34,9 +37,12 @@ data class YandexGPTResponse(val answer: String)
 object ApiRepository {
     suspend fun getYandexGPTResponse(requestData: YandexGPTRequest): YandexGPTResponse? {
         return try {
-            val response = KtorClient.client.post("http://192.168.9.117:8000/api/sources/") {
+            val response = KtorClient.client.post("https://5f06-80-85-245-237.ngrok-free.app/api/sources") {
                 contentType(ContentType.Application.Json)
                 setBody(requestData.toJson())
+                headers {
+                    append("ngrok-skip-browser-warning", "true")
+                }
             }
             val responseBody = response.body<String>()
             Log.i("RESPONSE", responseBody)
@@ -57,7 +63,7 @@ object ApiRepository {
                 else -> return null
             }
 
-            val response: HttpResponse = KtorClient.client.post("http://192.168.9.117:8000/api/gimini-questions/") {
+            val response: HttpResponse = KtorClient.client.post("https://5f06-80-85-245-237.ngrok-free.app/api/questions") {
                 contentType(ContentType.MultiPart.FormData)
                 setBody(
                     MultiPartFormDataContent(
@@ -65,16 +71,20 @@ object ApiRepository {
                             append("max_questions", maxQuestions.toString())
                             append("file", file.readBytes(), Headers.build {
                                 append(HttpHeaders.ContentType, contentType)
+                                append("ngrok-skip-browser-warning", "true")
                                 append(HttpHeaders.ContentDisposition, "filename=\"${file.name}\"")
                             })
                         }
                     )
                 )
             }
-            response.bodyAsText()
+
+            val responseText = response.bodyAsText()
+            val jsonElement = Json.parseToJsonElement(responseText).jsonObject
+            jsonElement["answer"]?.jsonPrimitive?.content
         } catch (e: Exception) {
+            Log.e(ApiRepository::class.simpleName, e.message.toString())
             null
         }
     }
-
 }

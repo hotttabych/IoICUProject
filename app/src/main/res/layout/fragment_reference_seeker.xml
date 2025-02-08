@@ -87,7 +87,8 @@
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp">
+                app:boxCornerRadiusTopStart="12dp"
+                android:alpha="0.5">
 
                 <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
@@ -98,8 +99,7 @@
                     android:ems="10"
                     android:inputType="text"
                     android:minHeight="48dp"
-                    android:enabled="false"
-                    android:alpha="0.5" />
+                    android:enabled="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -248,14 +248,37 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/reference_seeker_launch_button"
-                android:layout_marginVertical="16dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="24dp"
-                android:text="@string/reference_seeker_launch_button_text"
-                app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge" />
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/reference_seeker_launch_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="16dp"
+                    android:paddingVertical="24dp"
+                    app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.ExtraLarge"
+                    android:text="@string/reference_seeker_launch_button_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/prediction_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible"
+                    tools:progress="75" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 

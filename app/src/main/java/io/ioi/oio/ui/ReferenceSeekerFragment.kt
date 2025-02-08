@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import io.ioi.oio.databinding.FragmentReferenceSeekerBinding
 import java.util.Calendar
 import io.ioi.oio.R
@@ -64,7 +65,6 @@ class ReferenceSeekerFragment : BaseFragment() {
                             Toast.makeText(requireContext(), "Выберете другую дату", Toast.LENGTH_SHORT).show()
                         }
 
-
                     }
                 }.show(parentFragmentManager, "datePicker")
             }
@@ -84,6 +84,11 @@ class ReferenceSeekerFragment : BaseFragment() {
                 }
             }
             binding.referenceSeekerLaunchButton.setOnClickListener {
+                binding.apply {
+                    referenceSeekerLaunchButton.visibility = View.INVISIBLE
+                    predictionProgress.visibility = View.VISIBLE
+                    predictionProgress.isIndeterminate = true
+                }
                 editTopic.apply {
                     if (text.toString().isNotEmpty()) {
                         viewLifecycleOwner.lifecycleScope.launch {
@@ -93,7 +98,10 @@ class ReferenceSeekerFragment : BaseFragment() {
                                 startDate?.get(Calendar.YEAR).toString(),
                                 endDate?.get(Calendar.YEAR).toString()
                             ).also {
-                                Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+                                val bundle = Bundle().apply {
+                                    putString("result", it.toString())
+                                }
+                                findNavController().navigate(R.id.get_result_fragment, bundle)
                             }
                         }
                     }
