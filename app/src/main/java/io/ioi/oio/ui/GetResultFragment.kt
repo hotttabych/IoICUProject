@@ -9,10 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.navigation.fragment.findNavController
 import io.ioi.oio.R
-import io.ioi.oio.databinding.FragmentFileDownloadBinding
 import io.ioi.oio.databinding.FragmentGetResultBinding
 
 
@@ -30,6 +28,11 @@ class GetResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        arguments?.apply {
+            binding.copyableTextView.text = getString("result")
+        }
+
         binding.apply {
             readyLayout.postDelayed({
                 readyLayout.visibility = View.GONE
