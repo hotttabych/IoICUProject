@@ -33,6 +33,10 @@ class GetResultFragment : Fragment() {
             binding.copyableTextView.text = getString("result")
         }
 
+        binding.topAppBar.setNavigationOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+
         binding.goHomeButton.setOnClickListener {
             findNavController().navigate(R.id.dashboard_fragment)
         }

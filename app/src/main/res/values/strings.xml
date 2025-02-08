@@ -24,8 +24,8 @@
     <string name="additional_criteria_hint">Дополнительные критерии (необязательно)</string>
     <string name="reference_seeker_launch_button_text">Запустить поиск</string>
     <string name="qua_format_add_file_button_pdf">Загрузить файл работы PDF</string>
-    <string name="qua_format_add_file_button_word">Загрузить файл работы WORD</string>
-    <string name="qua_format_add_file_button_pptx">Загрузить файл работы PPTX</string>
+    <string name="qua_format_add_file_button_word">Загрузить файл работы WORD\n[в разработке]</string>
+    <string name="qua_format_add_file_button_pptx">Загрузить файл работы PPTX\n[в разработке]</string>
     <string name="qua_format_add_filу_done">Файл добавлен</string>
     <string name="qua_format_file_text">Загрузите файл/файлы вашей работы:</string>
     <string name="qua_theme_enter_text">Тема работы</string>
@@ -42,4 +42,5 @@
     <string name="go_home">На главный экран</string>
     <string name="text_to_copy">Копируемый текст</string>
     <string name="gosty_with_hearts">Гости, вокруг которого летают сердечки</string>
+    <string name="check_mark">Галочка</string>
 </resources>

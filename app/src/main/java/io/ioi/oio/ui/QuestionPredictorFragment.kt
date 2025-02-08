@@ -64,6 +64,14 @@ class QuestionPredictorFragment : BaseFragment() {
     ): View {
         _binding = FragmentQuestionPredictorBinding.inflate(inflater, container, false)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.topAppBar.setNavigationOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
         binding.addFileButtonPdf.setOnClickListener {
             getFileLauncher1.launch("application/pdf")
         }
@@ -98,8 +106,6 @@ class QuestionPredictorFragment : BaseFragment() {
                 Toast.makeText(requireContext(), "Загрузите файл для обработки", Toast.LENGTH_SHORT).show()
             }
         }
-
-        return binding.root
     }
 
     private fun handlePdfFileUpload1(uri: Uri) {

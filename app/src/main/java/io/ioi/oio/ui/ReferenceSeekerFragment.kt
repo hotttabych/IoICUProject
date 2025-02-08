@@ -40,6 +40,9 @@ class ReferenceSeekerFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            topAppBar.setNavigationOnClickListener {
+                parentFragmentManager.popBackStack()
+            }
             pickStartDateButton.setOnClickListener {
                 datePickerFragment { year, month, day ->
                     Calendar.getInstance().apply {

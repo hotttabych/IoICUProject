@@ -31,6 +31,11 @@ class FileCheckerFragment : BaseFragment() {
     ): View? {
         _binding = FragmentFileCheckerBinding.inflate(inflater, container, false)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.addFileButtonWord.setOnClickListener {
             getFileLauncher.launch("application/vnd.openxmlformats-officedocument.wordprocessingml.document")}
 
@@ -40,7 +45,9 @@ class FileCheckerFragment : BaseFragment() {
             }
         }
 
-        return binding.root
+        binding.topAppBar.setNavigationOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
     }
 
     private fun handleFileUpload(uri: Uri) {

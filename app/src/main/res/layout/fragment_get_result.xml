@@ -35,7 +35,7 @@
                 android:paddingStart="6dp"
                 android:paddingEnd="8dp"
                 app:layout_collapseMode="pin"
-                app:navigationIcon="@null" />
+                app:navigationIcon="?attr/homeAsUpIndicator" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>

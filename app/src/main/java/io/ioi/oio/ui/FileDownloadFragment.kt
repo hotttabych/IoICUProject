@@ -23,14 +23,16 @@ class FileDownloadFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            topAppBar.setNavigationOnClickListener {
+                parentFragmentManager.popBackStack()
+            }
             readyLayout.postDelayed({
                 readyLayout.visibility = View.GONE
                 readyLayout.visibility = View.VISIBLE
             }, 2000)
-        }
-
-        binding.goHomeButton.setOnClickListener {
-            findNavController().navigate(R.id.dashboard_fragment)
+            goHomeButton.setOnClickListener {
+                findNavController().navigate(R.id.dashboard_fragment)
+            }
         }
     }
 }
