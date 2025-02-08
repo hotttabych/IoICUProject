@@ -63,7 +63,7 @@ class QuestionPredictorFragment : BaseFragment() {
 
         binding.formatFileButton.setOnClickListener{
             if(fileUri_pdf != null || fileUri_pptx != null || fileUri_word != null) {
-                findNavController().navigate(R.id.file_download_fragment)
+                findNavController().navigate(R.id.get_result_fragment)
             }
             else {
                 Toast.makeText(requireContext(), "Загрузите файл для обработки", Toast.LENGTH_SHORT).show()

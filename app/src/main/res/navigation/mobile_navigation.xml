@@ -35,4 +35,10 @@
         android:label="@string/download"
         tools:layout="@layout/fragment_file_download" />
 
+    <fragment
+        android:id="@+id/get_result_fragment"
+        android:name="io.ioi.oio.ui.GetResultFragment"
+        android:label="@string/result"
+        tools:layout="@layout/fragment_get_result" />
+
 </navigation>
