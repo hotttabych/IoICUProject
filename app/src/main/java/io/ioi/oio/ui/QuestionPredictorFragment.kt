@@ -84,7 +84,10 @@ class QuestionPredictorFragment : BaseFragment() {
                     } ?: fileUri_word?.path?.let { wordFilePath ->
                         apiViewModel.getQuestions(File(wordFilePath), 10)
                     }
-                    findNavController().navigate(R.id.file_download_fragment)
+                    val bundle = Bundle().apply {
+                        putString("result", answer)
+                    }
+                    findNavController().navigate(R.id.get_result_fragment, bundle)
                 }
             }
             else {

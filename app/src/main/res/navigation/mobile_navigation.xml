@@ -39,6 +39,11 @@
         android:id="@+id/get_result_fragment"
         android:name="io.ioi.oio.ui.GetResultFragment"
         android:label="@string/result"
-        tools:layout="@layout/fragment_get_result" />
+        tools:layout="@layout/fragment_get_result">
+        <!-- Argument definition -->
+        <argument
+            android:name="result"
+            app:argType="string" />
+    </fragment>
 
 </navigation>
