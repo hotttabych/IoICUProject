@@ -57,7 +57,14 @@ class ReferenceSeekerFragment : BaseFragment() {
                         set(Calendar.MONTH, month)
                         set(Calendar.DAY_OF_MONTH, day)
                     }.also { calendar ->
-                        endDate = calendar
+                        if ((startDate == null || (startDate!! < calendar))) {
+                            endDate = calendar
+                        }
+                        else {
+                            Toast.makeText(requireContext(), "Выберете другую дату", Toast.LENGTH_SHORT).show()
+                        }
+
+
                     }
                 }.show(parentFragmentManager, "datePicker")
             }
@@ -89,6 +96,9 @@ class ReferenceSeekerFragment : BaseFragment() {
                                 Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
                             }
                         }
+                    }
+                    else {
+                        Toast.makeText(requireContext(), "Введите тему вашей работы", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

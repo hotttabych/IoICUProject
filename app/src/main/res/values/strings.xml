@@ -32,8 +32,12 @@
     <string name="qua_count_enter_text">Количество вопросов (10 максимум)</string>
     <string name="generate_button_text">Генерировать</string>
     <string name="file_is_ready">Твой файл готов.\nХорошей защиты!</string>
+    <string name="result_is_ready">Твой запрос готов.\nХорошей защиты!</string>
     <string name="download">Скачать</string>
+    <string name="copy">Копировать текст</string>
+    <string name="result">Результат</string>
     <string name="file_loading">Загружаем твой файл…</string>
+    <string name="result_loading">Загружаем твой запрос…</string>
     <string name="file_description_enter_text">Описание форматирования</string>
     <string name="go_home">На главный экран</string>
 </resources>
