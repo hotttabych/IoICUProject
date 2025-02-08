@@ -97,7 +97,9 @@
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:enabled="false"
+                    android:alpha="0.5" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -188,12 +190,16 @@
                 android:paddingVertical="10dp"
                 android:text="@string/reference_seeker_author_subtitle"
                 android:textAlignment="viewStart"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:enabled="false"
+                android:alpha="0.5" />
 
             <RadioGroup
                 android:id="@+id/author_radio_group"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:alpha="0.5">
 
                 <RadioButton
                     android:id="@+id/author_is_present_radio_button"
@@ -225,7 +231,9 @@
                 app:boxCornerRadiusBottomEnd="12dp"
                 app:boxCornerRadiusBottomStart="12dp"
                 app:boxCornerRadiusTopEnd="12dp"
-                app:boxCornerRadiusTopStart="12dp">
+                app:boxCornerRadiusTopStart="12dp"
+                android:enabled="false"
+                android:alpha="0.5">
 
                 <!--this is the actual edit text which takes the input-->
                 <com.google.android.material.textfield.TextInputEditText
@@ -235,7 +243,8 @@
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:inputType="text"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    android:enabled="false" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

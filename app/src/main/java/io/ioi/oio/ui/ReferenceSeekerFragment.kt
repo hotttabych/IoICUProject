@@ -7,17 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import io.ioi.oio.databinding.FragmentReferenceSeekerBinding
 import java.util.Calendar
-import java.util.Date
+import io.ioi.oio.R
+import io.ioi.oio.api.ApiViewModel
+import kotlinx.coroutines.launch
 
 class ReferenceSeekerFragment : BaseFragment() {
     private var _binding: FragmentReferenceSeekerBinding? = null
     private val binding get() = _binding!!
 
-    private var startDate: Date? = null
-    private var endDate: Date? = null
+    private val apiViewModel: ApiViewModel by viewModels()
+
+    private var startDate: Calendar? = null
+    private var endDate: Calendar? = null
+
+    private var seekType: String = "книги"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +46,7 @@ class ReferenceSeekerFragment : BaseFragment() {
                         set(Calendar.MONTH, month)
                         set(Calendar.DAY_OF_MONTH, day)
                     }.also { calendar ->
-                        startDate = calendar.time
+                        startDate = calendar
                     }
                 }.show(parentFragmentManager, "datePicker")
             }
@@ -48,11 +57,41 @@ class ReferenceSeekerFragment : BaseFragment() {
                         set(Calendar.MONTH, month)
                         set(Calendar.DAY_OF_MONTH, day)
                     }.also { calendar ->
-                        endDate = calendar.time
+                        endDate = calendar
                     }
                 }.show(parentFragmentManager, "datePicker")
             }
-
+            binding.booksRadioButton.setOnCheckedChangeListener { compoundButton, isChecked ->
+                if (isChecked) {
+                    seekType = requireContext().getString(R.string.books).lowercase()
+                }
+            }
+            binding.articlesRadioButton.setOnCheckedChangeListener { compoundButton, isChecked ->
+                if (isChecked) {
+                    seekType = requireContext().getString(R.string.articles).lowercase()
+                }
+            }
+            binding.websitesRadioButton.setOnCheckedChangeListener { compoundButton, isChecked ->
+                if (isChecked) {
+                    seekType = requireContext().getString(R.string.websites).lowercase()
+                }
+            }
+            binding.referenceSeekerLaunchButton.setOnClickListener {
+                editTopic.apply {
+                    if (text.toString().isNotEmpty()) {
+                        viewLifecycleOwner.lifecycleScope.launch {
+                            apiViewModel.getSources(
+                                text.toString(),
+                                seekType,
+                                startDate?.get(Calendar.YEAR).toString(),
+                                endDate?.get(Calendar.YEAR).toString()
+                            ).also {
+                                Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
