@@ -3,6 +3,7 @@ package io.ioi.oio.api
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.io.File
 
 class ApiViewModel : ViewModel() {
     suspend fun getSources(
@@ -19,5 +20,15 @@ class ApiViewModel : ViewModel() {
                 endYear
             )
         )?.answer
+    }
+
+    suspend fun getQuestions(
+        file: File,
+        maxQuestions: Int = 10
+    ): String? = withContext(Dispatchers.IO) {
+        ApiRepository.uploadFile(
+            file,
+            maxQuestions
+        )
     }
 }
